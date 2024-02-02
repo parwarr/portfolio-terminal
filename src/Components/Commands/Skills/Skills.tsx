@@ -3,8 +3,8 @@ import RenderCommand from '../RenderCommand/RenderCommand';
 const Skills = () => {
   const commands = [
     {
-      command: 'JavaScript',
-      description: 'ES6, TypeScript',
+      command: 'Programming languages / Scripting languages',
+      description: 'HTML, CSS, JavaScript, TypeScript, Bash',
     },
     {
       command: 'Backend',

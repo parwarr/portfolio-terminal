@@ -38,7 +38,7 @@ const InputField: React.FC = () => {
   };
 
   return (
-    <div className='flex flex-col items-center justify-center bg-black text-white font-mono w-full'>
+    <div className='font-mono'>
       <div className='w-full max-w-xl p-4'>
         <div>
           {showHelp && (

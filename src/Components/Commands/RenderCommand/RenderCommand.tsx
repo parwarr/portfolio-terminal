@@ -16,7 +16,7 @@ const RenderCommand = ({ commands }: CommandProp) => {
               {commands.map((command, index) => (
                 <div
                   key={index}
-                  className='flex flex-row items-center justify-center'
+                  className='flex flex-row items-center justify-center mb-3'
                 >
                   <p className='text-white text-2xl font-bold'>
                     {command.command}

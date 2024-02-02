@@ -40,21 +40,23 @@ const InputField: React.FC = () => {
   return (
     <div className='flex flex-col items-center justify-center bg-black text-white font-mono w-full'>
       <div className='w-full max-w-xl p-4'>
-        {showHelp && (
-          <div className='revealTextAnimation'>
-            <Help />
-          </div>
-        )}
-        {showAbout && (
-          <div className='revealTextAnimation'>
-            <About />
-          </div>
-        )}
-        {showSkills && (
-          <div className='revealTextAnimation'>
-            <Skills />
-          </div>
-        )}
+        <div>
+          {showHelp && (
+            <div className='revealTextAnimation'>
+              <Help />
+            </div>
+          )}
+          {showAbout && (
+            <div className='revealTextAnimation'>
+              <About />
+            </div>
+          )}
+          {showSkills && (
+            <div className='revealTextAnimation'>
+              <Skills />
+            </div>
+          )}
+        </div>
         <div className='flex flex-row items-center m-3'>
           <p className='text-green-400 text-2xl font-bold'>root@parwar:~$</p>
           <input

@@ -1,15 +1,15 @@
-@keyframes revealTextFull {
+@keyframes typing {
   from {
-    clip-path: polygon(0 0, 0% 0, 0% 100%, 0 100%);
+    width: 0;
   }
   to {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    width: 100%;
   }
 }
 
-.revealTextAnimation {
+.typingAnimation {
+  display: inline-block;
+  white-space: nowrap;
   overflow: hidden;
-  display: block;
-  white-space: normal;
-  animation: revealTextFull 2s ease forwards;
+  animation: typing 2s steps(40, end) forwards;
 }

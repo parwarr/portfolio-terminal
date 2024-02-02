@@ -1,36 +1,28 @@
-const Help = () => {
+const Skills = () => {
   const commands = [
     {
-      command: 'help',
-      description: 'List all commands',
+      command: 'JavaScript',
+      description: 'ES6, TypeScript',
     },
     {
-      command: 'clear',
-      description: 'Clear the terminal screen',
+      command: 'Backend',
+      description: 'Node.js, Express.js, NestJS',
     },
     {
-      command: 'about',
-      description: 'About me',
+      command: 'Frontend',
+      description: 'React, Next.js, TailwindCSS',
     },
     {
-      command: 'skills',
-      description: 'My skills',
+      command: 'Database',
+      description: 'MySQL, MariaDb',
     },
     {
-      command: 'projects',
-      description: 'My projects',
+      command: 'Technologies',
+      description: 'Git, Docker, AWS',
     },
     {
-      command: 'contact',
-      description: 'Contact me',
-    },
-    {
-      command: 'social',
-      description: 'My social media',
-    },
-    {
-      command: 'exit',
-      description: 'Close the terminal',
+      command: 'Languages',
+      description: 'German, English',
     },
   ];
 
@@ -39,7 +31,7 @@ const Help = () => {
       <div className='container '>
         <div className='flex flex-col items-center justify-center'>
           <div className='flex flex-col items-center justify-center'>
-            <p className='text-white text-2xl font-bold'>List of commands</p>
+            <p className='text-white text-2xl font-bold'>Skills</p>
             <div className='flex flex-col items-center justify-center'>
               {commands.map((command, index) => (
                 <div
@@ -47,7 +39,7 @@ const Help = () => {
                   className='flex flex-row items-center justify-center'
                 >
                   <p className='text-white text-2xl font-bold'>
-                    {command.command}
+                    {command.command + ' '}
                   </p>
                   <p className='text-white text-2xl font-bold'>
                     - {command.description}
@@ -62,4 +54,4 @@ const Help = () => {
   );
 };
 
-export default Help;
+export default Skills;

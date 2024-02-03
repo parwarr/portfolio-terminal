@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import About from '../Commands/About/About';
 import Help from '../Commands/Help/Help';
+import Projects from '../Commands/Projects/Project';
 import Skills from '../Commands/Skills/Skills';
 import './typingAnimation.css';
 
@@ -8,6 +9,7 @@ const InputField: React.FC = () => {
   const [showHelp, setShowHelp] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
   const [showSkills, setShowSkills] = useState(false);
+  const [showProjects, setShowProjects] = useState(false);
 
   const onCommand = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
@@ -17,16 +19,25 @@ const InputField: React.FC = () => {
           setShowHelp(true);
           setShowAbout(false);
           setShowSkills(false);
+          setShowProjects(false);
           break;
         case 'about':
           setShowHelp(false);
           setShowAbout(true);
           setShowSkills(false);
+          setShowProjects(false);
           break;
         case 'skills':
           setShowHelp(false);
           setShowAbout(false);
           setShowSkills(true);
+          setShowProjects(false);
+          break;
+        case 'projects':
+          setShowHelp(false);
+          setShowAbout(false);
+          setShowSkills(false);
+          setShowProjects(true);
           break;
         default:
           setShowHelp(false);
@@ -54,6 +65,11 @@ const InputField: React.FC = () => {
           {showSkills && (
             <div className='revealTextAnimation'>
               <Skills />
+            </div>
+          )}
+          {showProjects && (
+            <div className='revealTextAnimation'>
+              <Projects />
             </div>
           )}
         </div>

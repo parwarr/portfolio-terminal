@@ -3,6 +3,7 @@ import About from '../Commands/About/About';
 import Help from '../Commands/Help/Help';
 import Projects from '../Commands/Projects/Project';
 import Skills from '../Commands/Skills/Skills';
+import Socials from '../Commands/Social/Social';
 import './typingAnimation.css';
 
 const InputField: React.FC = () => {
@@ -10,6 +11,7 @@ const InputField: React.FC = () => {
   const [showAbout, setShowAbout] = useState(false);
   const [showSkills, setShowSkills] = useState(false);
   const [showProjects, setShowProjects] = useState(false);
+  const [showSocial, setShowSocial] = useState(false);
 
   const onCommand = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
@@ -20,29 +22,42 @@ const InputField: React.FC = () => {
           setShowAbout(false);
           setShowSkills(false);
           setShowProjects(false);
+          setShowSocial(false);
           break;
         case 'about':
           setShowHelp(false);
           setShowAbout(true);
           setShowSkills(false);
           setShowProjects(false);
+          setShowSocial(false);
           break;
         case 'skills':
           setShowHelp(false);
           setShowAbout(false);
           setShowSkills(true);
           setShowProjects(false);
+          setShowSocial(false);
           break;
         case 'projects':
           setShowHelp(false);
           setShowAbout(false);
           setShowSkills(false);
           setShowProjects(true);
+          setShowSocial(false);
+          break;
+        case 'social':
+          setShowHelp(false);
+          setShowAbout(false);
+          setShowSkills(false);
+          setShowProjects(false);
+          setShowSocial(true);
           break;
         default:
           setShowHelp(false);
           setShowAbout(false);
           setShowSkills(false);
+          setShowSocial(false);
+          setShowProjects(false);
       }
       (e.target as HTMLInputElement).value = '';
     }
@@ -70,6 +85,11 @@ const InputField: React.FC = () => {
           {showProjects && (
             <div className='revealTextAnimation'>
               <Projects />
+            </div>
+          )}
+          {showSocial && (
+            <div className='revealTextAnimation'>
+              <Socials />
             </div>
           )}
         </div>

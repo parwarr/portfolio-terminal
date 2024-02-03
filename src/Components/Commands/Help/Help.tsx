@@ -23,16 +23,12 @@ const Help = () => {
       description: 'My projects',
     },
     {
-      command: 'contact',
-      description: 'Contact me',
-    },
-    {
       command: 'social',
       description: 'My social media',
     },
     {
-      command: 'exit',
-      description: 'Close the terminal',
+      command: 'contact',
+      description: 'Contact me',
     },
   ];
 

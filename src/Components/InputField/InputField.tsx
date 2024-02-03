@@ -4,61 +4,34 @@ import Help from '../Commands/Help/Help';
 import Projects from '../Commands/Projects/Project';
 import Skills from '../Commands/Skills/Skills';
 import Socials from '../Commands/Social/Social';
-import './typingAnimation.css';
 
 const InputField: React.FC = () => {
-  const [showHelp, setShowHelp] = useState(false);
-  const [showAbout, setShowAbout] = useState(false);
-  const [showSkills, setShowSkills] = useState(false);
-  const [showProjects, setShowProjects] = useState(false);
-  const [showSocial, setShowSocial] = useState(false);
+  const [inputHistory, setInputHistory] = useState<Array<{ command: string; component: JSX.Element | null }>>([]);
+
+  const executeCommand = (command: string): JSX.Element | null => {
+    switch (command) {
+      case 'help':
+        return <Help />;
+      case 'about':
+        return <About />;
+      case 'skills':
+        return <Skills />;
+      case 'projects':
+        return <Projects />;
+      case 'social':
+        return <Socials />;
+      default:
+        return null;
+    }
+  };
 
   const onCommand = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       const command = (e.target as HTMLInputElement).value.toLowerCase().trim();
-      switch (command) {
-        case 'help':
-          setShowHelp(true);
-          setShowAbout(false);
-          setShowSkills(false);
-          setShowProjects(false);
-          setShowSocial(false);
-          break;
-        case 'about':
-          setShowHelp(false);
-          setShowAbout(true);
-          setShowSkills(false);
-          setShowProjects(false);
-          setShowSocial(false);
-          break;
-        case 'skills':
-          setShowHelp(false);
-          setShowAbout(false);
-          setShowSkills(true);
-          setShowProjects(false);
-          setShowSocial(false);
-          break;
-        case 'projects':
-          setShowHelp(false);
-          setShowAbout(false);
-          setShowSkills(false);
-          setShowProjects(true);
-          setShowSocial(false);
-          break;
-        case 'social':
-          setShowHelp(false);
-          setShowAbout(false);
-          setShowSkills(false);
-          setShowProjects(false);
-          setShowSocial(true);
-          break;
-        default:
-          setShowHelp(false);
-          setShowAbout(false);
-          setShowSkills(false);
-          setShowSocial(false);
-          setShowProjects(false);
-      }
+      const outputComponent = executeCommand(command);
+
+      setInputHistory(currentHistory => [...currentHistory, { command, component: outputComponent }]);
+
       (e.target as HTMLInputElement).value = '';
     }
   };
@@ -67,31 +40,12 @@ const InputField: React.FC = () => {
     <div className='font-mono'>
       <div className='w-full p-4'>
         <div>
-          {showHelp && (
-            <div className='revealTextAnimation'>
-              <Help />
+          {inputHistory.map((item, index) => (
+            <div key={index} className='revealTextAnimation'>
+              <p className='text-green-400 text-2xl font-bold'>root@parwar:~$ {item.command}</p>
+              {item.component}
             </div>
-          )}
-          {showAbout && (
-            <div className='revealTextAnimation'>
-              <About />
-            </div>
-          )}
-          {showSkills && (
-            <div className='revealTextAnimation'>
-              <Skills />
-            </div>
-          )}
-          {showProjects && (
-            <div className='revealTextAnimation'>
-              <Projects />
-            </div>
-          )}
-          {showSocial && (
-            <div className='revealTextAnimation'>
-              <Socials />
-            </div>
-          )}
+          ))}
         </div>
         <div className='flex flex-row items-start m-3'>
           <p className='text-green-400 text-2xl font-bold'>root@parwar:~$</p>

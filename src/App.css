@@ -4,14 +4,8 @@
   text-align: start;
   display: flex;
   flex-direction: column;
-  align-items: start;
-  justify-content: start;
   min-height: 100vh;
   width: 100%;
-  background-color: #1a1a1a;
-  color: #ffffff;
-  font-family: 'Inter', sans-serif;
-  font-size: 1.6rem;
   line-height: 1.5;
   font-weight: 400;
   font-synthesis: none;

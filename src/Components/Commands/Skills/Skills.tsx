@@ -2,35 +2,31 @@ import RenderCommand from '../RenderCommand/RenderCommand';
 
 const Skills = () => {
   const commands = [
-    'JavaScript',
-    'TypeScript',
-    'React',
-    'Node.js',
-    'Express',
-    'NestJS',
-    'MongoDB',
-    'Firebase',
-    'HTML',
-    'CSS',
-    'Tailwind CSS',
-    'Bootstrap',
-    'Git',
-    'GitHub',
-    'GitLab',
-    'Jira',
-    'Confluence',
-    'Bitbucket',
-    'Docker',
-    'Kubernetes',
-    'Jenkins',
-    'AWS',
-    'Azure',
-    'Google Cloud',
-    'Linux',
-    'Windows',
-    'MacOS',
+    {
+      command: 'Programming languages / Scripting languages',
+      description: 'HTML, CSS, JavaScript, TypeScript, Bash',
+    },
+    {
+      command: 'Backend',
+      description: 'Node.js, Express.js, NestJS',
+    },
+    {
+      command: 'Frontend',
+      description: 'React, Next.js, TailwindCSS',
+    },
+    {
+      command: 'Database',
+      description: 'MySQL, MariaDb',
+    },
+    {
+      command: 'Technologies',
+      description: 'Git, Docker, AWS',
+    },
+    {
+      command: 'Languages',
+      description: 'German, English',
+    },
   ];
-
   return (
     <>
       <RenderCommand commands={commands} />

@@ -42,17 +42,17 @@ const InputField: React.FC = () => {
       <div className='w-full p-4'>
         <div>
           {showHelp && (
-            <div className='typingAnimation'>
+            <div className='revealTextAnimation'>
               <Help />
             </div>
           )}
           {showAbout && (
-            <div className='typingAnimation'>
+            <div className='revealTextAnimation'>
               <About />
             </div>
           )}
           {showSkills && (
-            <div className='typingAnimation'>
+            <div className='revealTextAnimation'>
               <Skills />
             </div>
           )}

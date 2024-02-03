@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import Banner from '../Banner/Banner';
 import About from '../Commands/About/About';
 import Help from '../Commands/Help/Help';
 import Projects from '../Commands/Projects/Project';
@@ -20,10 +21,21 @@ const InputField: React.FC = () => {
         return <Projects />;
       case 'social':
         return <Socials />;
+      case 'contact':
+        return <></>;
+      case 'welcome':
+        return <Banner />;
+      case 'clear':
+        setInputHistory([]);
+        return null;
       default:
         return null;
     }
   };
+
+  useEffect(() => {
+    setInputHistory([{ command: 'welcome', component: <Banner /> }]);
+  }, []);
 
   const onCommand = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {

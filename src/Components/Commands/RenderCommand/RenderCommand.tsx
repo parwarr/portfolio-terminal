@@ -14,8 +14,7 @@ const RenderCommand = ({ commands }: CommandProp) => {
           {commands.map((command, index) => (
             <div key={index} className='flex flex-row items-start justify-start'>
               <p className='text-white text-xl'>{command.command}</p>
-              <p className='text-white text-xl font-bold px-2'>-</p>
-              {/* Check if the command has a URL for a clickable link */}
+              <p className='text-white text-xl font-bold pr-2'>:</p>
               {command.url ? (
                 <a href={command.url} target='_blank' rel='noopener noreferrer' className='text-white text-xl'>
                   {command.description}

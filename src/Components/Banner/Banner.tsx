@@ -49,9 +49,9 @@ const Banner = () => {
     <>
       <div className='flex flex-wrap justify-center items-center mt-3 ml-3'>
         <pre className='text-green-700 text-[10px] font-mono whitespace-pre-wrap flex-1'>{ASCII}</pre>
-        <pre className='text-green-700 text-[5px] font-mono whitespace-pre-wrap flex-1'>{imageAscii}</pre>
+        <pre className='text-green-700 text-[6.5px] font-mono whitespace-pre-wrap flex-1'>{imageAscii}</pre>
       </div>
-      <div className='text-green-700 text-[15px] font-mono whitespace-pre-wrap p-3'>
+      <div className='text-slate-200 text-[15px] font-mono whitespace-pre-wrap p-3'>
         <p className='mb-3'>{textPart1}</p>
         <p>
           {textPart2}

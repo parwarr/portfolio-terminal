@@ -3,32 +3,40 @@ import RenderCommand from '../RenderCommand/RenderCommand';
 const Help = () => {
   const commands = [
     {
-      command: 'Help',
-      description: 'List all commands',
+      command: 'help',
+      description: 'list all available commands',
     },
     {
-      command: 'Clear',
-      description: 'Clear the terminal screen',
+      command: 'clear',
+      description: 'clear the terminal screen',
     },
     {
-      command: 'About',
-      description: 'About me',
+      command: 'welcome',
+      description: 'display the welcome banner',
     },
     {
-      command: 'Skills',
-      description: 'My skills',
+      command: 'about',
+      description: 'get to know more about me',
     },
     {
-      command: 'Projects',
-      description: 'My projects',
+      command: 'skills',
+      description: 'get a list of my skills',
     },
     {
-      command: 'Social',
-      description: 'My social media',
+      command: 'projects',
+      description: 'get a list of my projects',
     },
     {
-      command: 'Contact',
-      description: 'Contact me',
+      command: 'social',
+      description: 'get a list of my social media accounts',
+    },
+    {
+      command: 'contact',
+      description: 'get in contact with me!',
+    },
+    {
+      command: 'themes',
+      description: 'list all available themes(coming soon!)',
     },
   ];
 

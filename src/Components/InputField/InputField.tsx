@@ -57,19 +57,26 @@ const InputField: React.FC = () => {
         <div>
           {inputHistory.map((item, index) => (
             <div key={index} className='revealTextAnimation'>
-              <p className='text-green-400 text-[20px] font-bold'>
-                {terminalUser}@{terminalHost}:~$ {item.command}
-              </p>
+              <div className='flex flex-row items-start m-3'>
+                <p className='text-orange-400 font-bold'>{terminalUser}</p>
+                <p className='text-white font-bold'>@</p>
+                <p className='text-green-400 font-bold'>{terminalHost}</p>
+                <p className='text-white font-bold'>:</p>
+                <p className='text-white font-bold'>~$</p>
+                <p className='text-custom-green font-bold ml-2'> {item.command}</p>
+              </div>
               {item.component}
             </div>
           ))}
         </div>
         <div className='flex flex-row items-start m-3'>
-          <p className='text-green-400 text-[20px] font-bold'>
-            {terminalUser}@{terminalHost}:~$
-          </p>
+          <p className='text-orange-400 font-bold'>{terminalUser}</p>
+          <p className='text-white font-bold'>@</p>
+          <p className='text-green-400 font-bold'>{terminalHost}</p>
+          <p className='text-white font-bold'>:</p>
+          <p className='text-white font-bold'>~$</p>
           <input
-            className='ml-2 bg-transparent text-white text-2xl font-bold focus:outline-none w-full'
+            className='ml-2 bg-transparent text-white text-xl font-bold focus:outline-none w-full'
             type='text'
             onKeyDown={onCommand}
             autoFocus

@@ -12,14 +12,15 @@ const RenderCommand = ({ commands }: CommandProp) => {
       <div className='space-y-2'>
         {commands.map((command, index) => (
           <div key={index} className='flex'>
-            <p className='text-white text-[15px] font-bold flex-shrink-0 w-32'>{command.command}:</p>
+            <p className='text-custom-green font-bold flex-shrink-0 w-32'>{command.command}</p>
+            <p className='mr-3'>-</p>
             <div className='flex-grow'>
               {command.url ? (
-                <a href={command.url} target='_blank' rel='noopener noreferrer' className='text-white text-[10px]'>
+                <a href={command.url} target='_blank' rel='noopener noreferrer' className='text-white '>
                   {command.description}
                 </a>
               ) : (
-                <p className='text-white text-xl'>{command.description}</p>
+                <p className='text-white'>{command.description}</p>
               )}
             </div>
           </div>

@@ -9,6 +9,8 @@ import Contact from '../Contact/Contact';
 
 const InputField: React.FC = () => {
   const [inputHistory, setInputHistory] = useState<Array<{ command: string; component: JSX.Element | null }>>([]);
+  const terminalUser = 'visitor';
+  const terminalHost = 'terminal.parwar.dev';
 
   const executeCommand = (command: string): JSX.Element | null => {
     switch (command) {
@@ -55,13 +57,17 @@ const InputField: React.FC = () => {
         <div>
           {inputHistory.map((item, index) => (
             <div key={index} className='revealTextAnimation'>
-              <p className='text-green-400 text-2xl font-bold'>root@parwar:~$ {item.command}</p>
+              <p className='text-green-400 text-[20px] font-bold'>
+                {terminalUser}@{terminalHost}:~$ {item.command}
+              </p>
               {item.component}
             </div>
           ))}
         </div>
         <div className='flex flex-row items-start m-3'>
-          <p className='text-green-400 text-xl font-bold'>root@parwar:~$</p>
+          <p className='text-green-400 text-[20px] font-bold'>
+            {terminalUser}@{terminalHost}:~$
+          </p>
           <input
             className='ml-2 bg-transparent text-white text-2xl font-bold focus:outline-none w-full'
             type='text'

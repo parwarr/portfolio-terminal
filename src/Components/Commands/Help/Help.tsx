@@ -3,31 +3,31 @@ import RenderCommand from '../RenderCommand/RenderCommand';
 const Help = () => {
   const commands = [
     {
-      command: 'help',
+      command: 'Help',
       description: 'List all commands',
     },
     {
-      command: 'clear',
+      command: 'Clear',
       description: 'Clear the terminal screen',
     },
     {
-      command: 'about',
+      command: 'About',
       description: 'About me',
     },
     {
-      command: 'skills',
+      command: 'Skills',
       description: 'My skills',
     },
     {
-      command: 'projects',
+      command: 'Projects',
       description: 'My projects',
     },
     {
-      command: 'social',
+      command: 'Social',
       description: 'My social media',
     },
     {
-      command: 'contact',
+      command: 'Contact',
       description: 'Contact me',
     },
   ];

@@ -5,6 +5,7 @@ import Help from '../Commands/Help/Help';
 import Projects from '../Commands/Projects/Project';
 import Skills from '../Commands/Skills/Skills';
 import Socials from '../Commands/Social/Social';
+import Contact from '../Contact/Contact';
 
 const InputField: React.FC = () => {
   const [inputHistory, setInputHistory] = useState<Array<{ command: string; component: JSX.Element | null }>>([]);
@@ -22,7 +23,7 @@ const InputField: React.FC = () => {
       case 'social':
         return <Socials />;
       case 'contact':
-        return <></>;
+        return <Contact />;
       case 'welcome':
         return <Banner />;
       case 'clear':
@@ -60,7 +61,7 @@ const InputField: React.FC = () => {
           ))}
         </div>
         <div className='flex flex-row items-start m-3'>
-          <p className='text-green-400 text-2xl font-bold'>root@parwar:~$</p>
+          <p className='text-green-400 text-xl font-bold'>root@parwar:~$</p>
           <input
             className='ml-2 bg-transparent text-white text-2xl font-bold focus:outline-none w-full'
             type='text'

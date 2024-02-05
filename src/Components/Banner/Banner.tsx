@@ -1,3 +1,5 @@
+import { Pace, WindupChildren } from 'windups';
+
 const Banner = () => {
   const ASCII = `
 
@@ -46,21 +48,27 @@ const Banner = () => {
   const command = 'help';
 
   return (
-    <>
-      <div className='flex flex-wrap justify-center items-center mt-3 ml-3'>
-        <pre className='text-green-700 text-[10px] font-mono whitespace-pre-wrap flex-1'>{ASCII}</pre>
-        <pre className='text-green-700 text-[6.5px] font-mono whitespace-pre-wrap flex-1'>{imageAscii}</pre>
-      </div>
-      <div className='text-slate-200 text-[15px] font-mono whitespace-pre-wrap p-3'>
-        <p className='mb-3'>{textPart1}</p>
-        <p>
-          {textPart2}
-          <span>`</span>
-          <span className='text-custom-green'>{command}</span>
-          <span>`.</span>
-        </p>
-      </div>
-    </>
+    <WindupChildren>
+      <Pace getPace={(char) => (char === ' ' ? 0 : 0.1)}>
+        <div className='flex flex-wrap justify-center items-center mt-3 ml-3'>
+          <pre className='text-green-700 text-[10px] font-mono whitespace-pre-wrap flex-1'>
+            {ASCII}
+          </pre>
+          <pre className='text-green-700 text-[6.5px] font-mono whitespace-pre-wrap flex-1'>
+            {imageAscii}
+          </pre>
+        </div>
+        <div className='text-slate-200 text-[15px] font-mono whitespace-pre-wrap p-3'>
+          <p className='mb-3'>{textPart1}</p>
+          <p>
+            {textPart2}
+            <span>`</span>
+            <span className='text-custom-green'>{command}</span>
+            <span>`.</span>
+          </p>
+        </div>
+      </Pace>
+    </WindupChildren>
   );
 };
 

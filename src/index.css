@@ -19,12 +19,17 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: rgb(5, 206, 145);
   text-decoration: inherit;
   font-size: 16px;
 }
 a:hover {
-  color: #535bf2;
+  color: rgb(5, 206, 145);
+}
+
+::selection {
+  background-color: rgb(5, 206, 145) !important;
+  color: rgb(29, 42, 53) !important;
 }
 
 body {

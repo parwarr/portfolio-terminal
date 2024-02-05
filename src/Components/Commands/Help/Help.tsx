@@ -11,10 +11,6 @@ const Help = () => {
       description: 'clear the terminal screen',
     },
     {
-      command: 'welcome',
-      description: 'display the welcome banner',
-    },
-    {
       command: 'about',
       description: 'get to know more about me',
     },

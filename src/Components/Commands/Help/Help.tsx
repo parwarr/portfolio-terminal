@@ -4,35 +4,39 @@ const Help = () => {
   const commands = [
     {
       command: 'help',
-      description: 'List all commands',
+      description: 'list all available commands',
     },
     {
       command: 'clear',
-      description: 'Clear the terminal screen',
+      description: 'clear the terminal screen',
+    },
+    {
+      command: 'welcome',
+      description: 'display the welcome banner',
     },
     {
       command: 'about',
-      description: 'About me',
+      description: 'get to know more about me',
     },
     {
       command: 'skills',
-      description: 'My skills',
+      description: 'get a list of my skills',
     },
     {
       command: 'projects',
-      description: 'My projects',
-    },
-    {
-      command: 'contact',
-      description: 'Contact me',
+      description: 'get a list of my projects',
     },
     {
       command: 'social',
-      description: 'My social media',
+      description: 'get a list of my social media accounts',
     },
     {
-      command: 'exit',
-      description: 'Close the terminal',
+      command: 'contact',
+      description: 'get in contact with me!',
+    },
+    {
+      command: 'themes',
+      description: 'list all available themes(coming soon!)',
     },
   ];
 

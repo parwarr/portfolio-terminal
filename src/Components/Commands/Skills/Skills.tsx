@@ -3,8 +3,8 @@ import RenderCommand from '../RenderCommand/RenderCommand';
 const Skills = () => {
   const commands = [
     {
-      command: 'Programming languages / Scripting languages',
-      description: 'HTML, CSS, JavaScript, TypeScript, Bash',
+      command: 'Programming languages',
+      description: 'HTML, CSS, JavaScript, TypeScript',
     },
     {
       command: 'Backend',
@@ -27,7 +27,6 @@ const Skills = () => {
       description: 'German, English',
     },
   ];
-
   return (
     <>
       <RenderCommand commands={commands} />

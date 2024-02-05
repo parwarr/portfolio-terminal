@@ -35,6 +35,10 @@ const Help = () => {
       command: 'themes',
       description: 'list all available themes(coming soon!)',
     },
+    {
+      command: 'gui',
+      description: 'switch to GUI mode(coming soon!)',
+    },
   ];
 
   return (

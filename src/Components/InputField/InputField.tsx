@@ -45,7 +45,9 @@ const InputField: React.FC = () => {
     setInputHistory([{ command: 'welcome', component: <Banner /> }]);
   }, []);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    setMultiCommand([]);
+  }, [inputHistory]);
 
   const inputRefCallback = (node: HTMLInputElement) => {
     if (node) {

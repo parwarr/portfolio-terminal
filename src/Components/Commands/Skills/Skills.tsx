@@ -20,7 +20,7 @@ const Skills = () => {
     },
     {
       command: 'Technologies',
-      description: 'Git, Docker, AWS',
+      description: 'Git, Docker',
     },
     {
       command: 'Languages',

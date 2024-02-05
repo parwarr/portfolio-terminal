@@ -8,7 +8,9 @@ import Socials from '../Commands/Social/Social';
 import Contact from '../Contact/Contact';
 
 const InputField: React.FC = () => {
-  const [inputHistory, setInputHistory] = useState<Array<{ command: string; component: JSX.Element | null }>>([]);
+  const [inputHistory, setInputHistory] = useState<
+    Array<{ command: string; component: JSX.Element | null }>
+  >([]);
   const terminalUser = 'visitor';
   const terminalHost = 'terminal.parwar.dev';
 
@@ -40,12 +42,24 @@ const InputField: React.FC = () => {
     setInputHistory([{ command: 'welcome', component: <Banner /> }]);
   }, []);
 
+  const inputRefCallback = (node: HTMLInputElement) => {
+    if (node) {
+      window.scrollTo({
+        top: node.getBoundingClientRect().top + window.scrollY,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   const onCommand = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       const command = (e.target as HTMLInputElement).value.toLowerCase().trim();
       const outputComponent = executeCommand(command);
 
-      setInputHistory(currentHistory => [...currentHistory, { command, component: outputComponent }]);
+      setInputHistory((currentHistory) => [
+        ...currentHistory,
+        { command, component: outputComponent },
+      ]);
 
       (e.target as HTMLInputElement).value = '';
     }
@@ -63,7 +77,10 @@ const InputField: React.FC = () => {
                 <p className='text-green-400 font-bold'>{terminalHost}</p>
                 <p className='text-white font-bold'>:</p>
                 <p className='text-white font-bold'>~$</p>
-                <p className='text-custom-green font-bold ml-2'> {item.command}</p>
+                <p className='text-custom-green font-bold ml-2'>
+                  {' '}
+                  {item.command}
+                </p>
               </div>
               {item.component}
             </div>
@@ -80,6 +97,7 @@ const InputField: React.FC = () => {
             type='text'
             onKeyDown={onCommand}
             autoFocus
+            ref={inputRefCallback}
           />
         </div>
       </div>

@@ -27,7 +27,7 @@ const Help = () => {
       description: 'get a list of my projects',
     },
     {
-      command: 'social',
+      command: 'socials',
       description: 'get a list of my social media accounts',
     },
     {

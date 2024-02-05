@@ -24,7 +24,7 @@ const InputField: React.FC = () => {
         return <Skills />;
       case 'projects':
         return <Projects />;
-      case 'social':
+      case 'socials':
         return <Socials />;
       case 'contact':
         return <Contact />;
@@ -93,7 +93,7 @@ const InputField: React.FC = () => {
           <p className='text-white font-bold'>:</p>
           <p className='text-white font-bold'>~$</p>
           <input
-            className='ml-2 bg-transparent text-white text-xl font-bold focus:outline-none w-full'
+            className='ml-2 bg-transparent text-white font-bold focus:outline-none w-full'
             type='text'
             onKeyDown={onCommand}
             autoFocus

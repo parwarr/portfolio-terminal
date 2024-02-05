@@ -10,6 +10,7 @@ import Contact from '../Contact/Contact';
 
 const InputField: React.FC = () => {
   const [inputHistory, setInputHistory] = useState<Array<{ command: string; component: JSX.Element | string }>>([]);
+  const [multiCommand, setMultiCommand] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState<number | null>(null);
   const terminalUser = 'visitor';
   const terminalHost = 'terminal.parwar.dev';
@@ -33,6 +34,7 @@ const InputField: React.FC = () => {
         return <Banner />;
       case 'clear':
         setInputHistory([]);
+        setMultiCommand([]);
         return '';
       default:
         return <CommandNotFound />;
@@ -42,6 +44,10 @@ const InputField: React.FC = () => {
   useEffect(() => {
     setInputHistory([{ command: 'welcome', component: <Banner /> }]);
   }, []);
+
+  useEffect(() => {
+    setMultiCommand([]);
+  }, [inputHistory]);
 
   const inputRefCallback = (node: HTMLInputElement) => {
     if (node) {
@@ -64,12 +70,16 @@ const InputField: React.FC = () => {
     } else if (e.ctrlKey && e.key === 'l') {
       e.preventDefault();
       setInputHistory([]);
+      setMultiCommand([]);
     } else if (e.key === 'Tab') {
       e.preventDefault();
       const currentInput = (e.target as HTMLInputElement).value.toLowerCase().trim();
       const matchedCommands = commandsList.filter(cmd => cmd.startsWith(currentInput));
+      if (matchedCommands.length > 1) {
+        const displayCommands = matchedCommands.join(' ');
 
-      if (matchedCommands.length > 0) {
+        setMultiCommand([displayCommands.split(' ').join(', ')]);
+      } else if (matchedCommands.length > 0) {
         (e.target as HTMLInputElement).value = matchedCommands[0];
       }
     } else if (e.key === 'ArrowUp') {
@@ -124,6 +134,7 @@ const InputField: React.FC = () => {
             ref={inputRefCallback}
           />
         </div>
+        {multiCommand && multiCommand.length > 0 && <p className='text-custom-green font-bold m-3'>{multiCommand}</p>}
       </div>
     </div>
   );

@@ -78,7 +78,7 @@ const InputField: React.FC = () => {
       if (matchedCommands.length > 1) {
         const displayCommands = matchedCommands.join(' ');
 
-        setMultiCommand([displayCommands.split(' ').join(', ')]);
+        setMultiCommand([displayCommands]);
       } else if (matchedCommands.length > 0) {
         (e.target as HTMLInputElement).value = matchedCommands[0];
       }

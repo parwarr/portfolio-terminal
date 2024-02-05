@@ -47,16 +47,15 @@ const Banner = () => {
   const textPart2 = 'For a list of available commands, type ';
   const command = 'help';
 
+  const text4 = 'For more information, visit my ';
+  const link = 'https://github.com/parwarr';
+
   return (
     <WindupChildren>
-      <Pace getPace={(char) => (char === ' ' ? 0 : 0.1)}>
+      <Pace getPace={char => (char === ' ' ? 0 : 0.1)}>
         <div className='flex flex-wrap justify-center items-center mt-3 ml-3'>
-          <pre className='text-green-700 text-[10px] font-mono whitespace-pre-wrap flex-1'>
-            {ASCII}
-          </pre>
-          <pre className='text-green-700 text-[6.5px] font-mono whitespace-pre-wrap flex-1'>
-            {imageAscii}
-          </pre>
+          <pre className='text-green-700 text-[10px] font-mono whitespace-pre-wrap flex-1'>{ASCII}</pre>
+          <pre className='text-green-700 text-[6.5px] font-mono whitespace-pre-wrap flex-1'>{imageAscii}</pre>
         </div>
         <div className='text-slate-200 text-[15px] font-mono whitespace-pre-wrap p-3'>
           <p className='mb-3'>{textPart1}</p>
@@ -65,6 +64,14 @@ const Banner = () => {
             <span>`</span>
             <span className='text-custom-green'>{command}</span>
             <span>`.</span>
+          </p>
+        </div>
+        <div>
+          <p className='text-slate-200 text-[15px] font-mono whitespace-pre-wrap p-3'>
+            {text4}
+            <a href={link} target='_blank' rel='noopener noreferrer' className='text-custom-green'>
+              GitHub!
+            </a>
           </p>
         </div>
       </Pace>

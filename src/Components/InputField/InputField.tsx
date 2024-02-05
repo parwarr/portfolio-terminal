@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Banner from '../Banner/Banner';
+import CommandNotFound from '../CommandNotFound/CommandNotFound';
 import About from '../Commands/About/About';
 import Help from '../Commands/Help/Help';
 import Projects from '../Commands/Projects/Project';
@@ -8,11 +9,13 @@ import Socials from '../Commands/Social/Social';
 import Contact from '../Contact/Contact';
 
 const InputField: React.FC = () => {
-  const [inputHistory, setInputHistory] = useState<Array<{ command: string; component: JSX.Element | null }>>([]);
+  const [inputHistory, setInputHistory] = useState<Array<{ command: string; component: JSX.Element | string }>>([]);
+  const [historyIndex, setHistoryIndex] = useState<number | null>(null);
   const terminalUser = 'visitor';
   const terminalHost = 'terminal.parwar.dev';
+  const commandsList = ['help', 'about', 'skills', 'projects', 'socials', 'contact', 'welcome', 'clear'];
 
-  const executeCommand = (command: string): JSX.Element | null => {
+  const executeCommand = (command: string): JSX.Element | string => {
     switch (command) {
       case 'help':
         return <Help />;
@@ -30,9 +33,9 @@ const InputField: React.FC = () => {
         return <Banner />;
       case 'clear':
         setInputHistory([]);
-        return null;
+        return '';
       default:
-        return null;
+        return <CommandNotFound />;
     }
   };
 
@@ -51,12 +54,41 @@ const InputField: React.FC = () => {
 
   const onCommand = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
+      e.preventDefault();
       const command = (e.target as HTMLInputElement).value.toLowerCase().trim();
       const outputComponent = executeCommand(command);
-
+      setHistoryIndex(null);
       setInputHistory(currentHistory => [...currentHistory, { command, component: outputComponent }]);
 
       (e.target as HTMLInputElement).value = '';
+    } else if (e.ctrlKey && e.key === 'l') {
+      e.preventDefault();
+      setInputHistory([]);
+    } else if (e.key === 'Tab') {
+      e.preventDefault();
+      const currentInput = (e.target as HTMLInputElement).value.toLowerCase().trim();
+      const matchedCommands = commandsList.filter(cmd => cmd.startsWith(currentInput));
+
+      if (matchedCommands.length > 0) {
+        (e.target as HTMLInputElement).value = matchedCommands[0];
+      }
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      const newIndex = historyIndex !== null ? Math.max(historyIndex - 1, 0) : inputHistory.length - 1;
+      setHistoryIndex(newIndex);
+      (e.target as HTMLInputElement).value = inputHistory[newIndex]?.command || '';
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (historyIndex !== null) {
+        const newIndex = historyIndex + 1;
+        if (newIndex < inputHistory.length) {
+          setHistoryIndex(newIndex);
+          (e.target as HTMLInputElement).value = inputHistory[newIndex].command;
+        } else {
+          setHistoryIndex(null);
+          (e.target as HTMLInputElement).value = '';
+        }
+      }
     }
   };
 

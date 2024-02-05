@@ -1,3 +1,4 @@
+import KeyboardShortcuts from '../KeyboardShortcuts/KeyboardShortcuts';
 import RenderCommand from '../RenderCommand/RenderCommand';
 
 const Help = () => {
@@ -39,6 +40,7 @@ const Help = () => {
   return (
     <>
       <RenderCommand commands={commands} />
+      <KeyboardShortcuts />
     </>
   );
 };

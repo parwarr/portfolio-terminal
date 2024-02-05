@@ -96,7 +96,7 @@ const InputField: React.FC = () => {
             className='ml-2 bg-transparent text-white font-bold focus:outline-none w-full'
             type='text'
             onKeyDown={onCommand}
-            autoFocus
+            autoFocus={true}
             ref={inputRefCallback}
           />
         </div>

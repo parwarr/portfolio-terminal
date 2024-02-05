@@ -3,7 +3,7 @@ import RenderCommand from '../Commands/RenderCommand/RenderCommand';
 const Contact = () => {
   const mailCommand = {
     command: 'Email',
-    description: 'parwar-habasch@gmx.de',
+    description: 'parwar.habasch@gmx.de',
   };
 
   const mailTo = () => {

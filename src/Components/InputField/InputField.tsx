@@ -14,7 +14,7 @@ const InputField: React.FC = () => {
   const [historyIndex, setHistoryIndex] = useState<number | null>(null);
   const terminalUser = 'visitor';
   const terminalHost = 'terminal.parwar.dev';
-  const commandsList = ['help', 'about', 'skills', 'projects', 'socials', 'contact', 'welcome', 'clear'];
+  const commandsList = ['help', 'about', 'skills', 'projects', 'socials', 'contact', 'welcome', 'clear', 'gui'];
 
   const executeCommand = (command: string): JSX.Element | string => {
     switch (command) {
@@ -32,6 +32,8 @@ const InputField: React.FC = () => {
         return <Contact />;
       case 'welcome':
         return <Banner />;
+      case 'gui':
+        return '';
       case 'clear':
         setInputHistory([]);
         setMultiCommand([]);
